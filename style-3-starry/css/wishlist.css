@@ -1,0 +1,351 @@
+/* 心愿星球页面 */
+.wishlist-hero {
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+}
+
+.wish-constellation {
+    padding: 3rem 2rem 6rem;
+}
+
+.wish-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.wish-star {
+    background: rgba(30, 27, 60, 0.6);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 30px;
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.wish-star::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(180deg, var(--cyan), var(--cosmic-purple));
+    transition: width 0.4s ease;
+}
+
+.wish-star:hover::before {
+    width: 10px;
+}
+
+.wish-star:hover {
+    transform: translateX(15px) scale(1.02);
+    border-color: rgba(123, 104, 238, 0.6);
+    box-shadow:
+        0 20px 60px rgba(123, 104, 238, 0.3),
+        inset 0 0 60px rgba(123, 104, 238, 0.1);
+}
+
+.wish-star.completed {
+    opacity: 0.8;
+    border-color: rgba(123, 104, 238, 0.2);
+}
+
+.wish-star.completed::before {
+    background: linear-gradient(180deg, var(--gold), var(--pink));
+}
+
+/* 星环效果 */
+.star-ring {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.star-ring.completed-ring {
+    border-color: var(--gold);
+}
+
+.wish-star:hover .star-ring {
+    opacity: 0.6;
+    width: 120px;
+    height: 120px;
+}
+
+/* 图标 */
+.wish-icon {
+    font-size: 4rem;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(123, 104, 238, 0.3), transparent);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+.wish-star:hover .wish-icon {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 20px var(--cyan));
+}
+
+.wish-star.completed .wish-icon {
+    filter: grayscale(0.3) brightness(0.9);
+}
+
+.wish-star.completed:hover .wish-icon {
+    filter: grayscale(0) brightness(1);
+}
+
+/* 粒子效果容器 */
+.star-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.wish-star:hover .star-particles {
+    opacity: 1;
+}
+
+/* 内容区 */
+.wish-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.wish-name {
+    font-size: 1.8rem;
+    color: var(--cyan);
+    margin-bottom: 0.8rem;
+    transition: all 0.3s;
+}
+
+.wish-star:hover .wish-name {
+    text-shadow: 0 0 20px var(--cyan);
+}
+
+.wish-star.completed .wish-name {
+    color: var(--gold);
+}
+
+.wish-detail {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+}
+
+.wish-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wish-status {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--pink);
+    background: rgba(255, 105, 180, 0.15);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.wish-status.completed-status {
+    color: var(--gold);
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* 添加心愿按钮 */
+.add-wish-btn-container {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.add-wish-btn {
+    padding: 1.5rem 4rem;
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--pink));
+    border: 2px solid rgba(255, 105, 180, 0.5);
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-wish-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+}
+
+.add-wish-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.add-wish-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+    border-color: var(--cyan);
+}
+
+.add-wish-btn span:first-child {
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-15deg) scale(1.1); }
+    50% { transform: rotate(15deg) scale(1.2); }
+    75% { transform: rotate(-15deg) scale(1.1); }
+}
+
+/* 统计卡片 */
+.wish-stats {
+    padding: 4rem 2rem 6rem;
+    background: rgba(10, 17, 40, 0.5);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background: rgba(30, 27, 60, 0.6);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 25px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+    box-shadow: 0 15px 40px rgba(123, 104, 238, 0.4);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.stat-card:nth-child(2) .stat-icon { animation-delay: 0.5s; }
+.stat-card:nth-child(3) .stat-icon { animation-delay: 1s; }
+.stat-card:nth-child(4) .stat-icon { animation-delay: 1.5s; }
+
+.stat-num {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--cyan);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px var(--cyan);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .wishlist-hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .wish-constellation {
+        padding: 2rem 1.5rem 4rem;
+    }
+
+    .wish-list {
+        gap: 2rem;
+    }
+
+    .wish-star {
+        grid-template-columns: auto 1fr;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .wish-icon {
+        font-size: 3rem;
+        width: 70px;
+        height: 70px;
+    }
+
+    .wish-name {
+        font-size: 1.4rem;
+    }
+
+    .wish-detail {
+        font-size: 1rem;
+    }
+
+    .add-wish-btn {
+        padding: 1.2rem 3rem;
+        font-size: 1.1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .stat-num {
+        font-size: 2.5rem;
+    }
+}

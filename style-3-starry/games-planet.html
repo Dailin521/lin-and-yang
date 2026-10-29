@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏星球 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/games-planet.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="games-planet.html" class="active">🎮 游戏星球</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="planet-hero">
+        <div class="container">
+            <div class="hero-planet">
+                <div class="planet-visual game-planet">
+                    <div class="planet-core game-core"></div>
+                    <div class="planet-ring"></div>
+                    <div class="planet-glow"></div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2 class="planet-title glow">🎮 游戏星球</h2>
+                <p class="planet-desc">一起玩耍，一起欢笑，在这个星球上创造更多回忆</p>
+                <div class="planet-stats">
+                    <span>5 个游戏</span>
+                    <span>42 局胜利</span>
+                    <span>❤️ 快乐指数</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section">
+        <div class="container">
+            <div class="games-grid">
+                <!-- 游戏1：消消乐 -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-icon">🎯</span>
+                        <h3 class="game-name">配对消消乐</h3>
+                    </div>
+                    <p class="game-desc">点击卡片找出配对，越快越好</p>
+                    <div class="game-preview">
+                        <div class="card-grid">
+                            <div class="card-item">🎵</div>
+                            <div class="card-item">💕</div>
+                            <div class="card-item">🎮</div>
+                            <div class="card-item">🌙</div>
+                        </div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('match')">开始游戏</button>
+                </div>
+
+                <!-- 游戏2：数字猜猜 -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-icon">🔢</span>
+                        <h3 class="game-name">数字猜猜</h3>
+                    </div>
+                    <p class="game-desc">猜出1-100之间的数字，挑战你的直觉</p>
+                    <div class="game-preview">
+                        <div class="number-display">?</div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('number')">开始游戏</button>
+                </div>
+
+                <!-- 游戏3：快速反应 -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-icon">⚡</span>
+                        <h3 class="game-name">快速反应</h3>
+                    </div>
+                    <p class="game-desc">点击出现的按钮，考验你的反应速度</p>
+                    <div class="game-preview">
+                        <div class="reaction-preview">
+                            <div class="pulse-circle"></div>
+                        </div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('reaction')">开始游戏</button>
+                </div>
+
+                <!-- 游戏4：问答挑战 -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-icon">❓</span>
+                        <h3 class="game-name">问答挑战</h3>
+                    </div>
+                    <p class="game-desc">回答关于彼此的问题，看看了解有多深</p>
+                    <div class="game-preview">
+                        <div class="question-preview">
+                            <p>你最喜欢?</p>
+                        </div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('quiz')">开始游戏</button>
+                </div>
+
+                <!-- 游戏5：转盘抽奖 -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-icon">🎡</span>
+                        <h3 class="game-name">幸运转盘</h3>
+                    </div>
+                    <p class="game-desc">转动转盘，看看今天的幸运奖励是什么</p>
+                    <div class="game-preview">
+                        <div class="wheel-preview">
+                            <div class="wheel-inner"></div>
+                        </div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('wheel')">开始游戏</button>
+                </div>
+
+                <!-- 游戏6：两人玩法 -->
+                <div class="game-card featured">
+                    <div class="game-header">
+                        <span class="game-icon">👥</span>
+                        <h3 class="game-name">王者对战</h3>
+                        <span class="featured-badge">最受欢迎</span>
+                    </div>
+                    <p class="game-desc">一起玩《王者荣耀》，组队打rank</p>
+                    <div class="game-preview">
+                        <div class="battle-preview">
+                            <div class="vs-text">VS</div>
+                        </div>
+                    </div>
+                    <button class="play-btn featured-btn">组队开玩</button>
+                </div>
+            </div>
+
+            <!-- 游戏排行 -->
+            <div class="leaderboard">
+                <h3 class="leaderboard-title">🏆 游戏排行</h3>
+                <div class="leaderboard-content">
+                    <div class="rank-item">
+                        <span class="rank-num">1</span>
+                        <span class="rank-game">王者荣耀</span>
+                        <span class="rank-plays">342 次</span>
+                        <div class="rank-bar" style="width: 100%"></div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">2</span>
+                        <span class="rank-game">配对消消乐</span>
+                        <span class="rank-plays">128 次</span>
+                        <div class="rank-bar" style="width: 70%"></div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">3</span>
+                        <span class="rank-game">问答挑战</span>
+                        <span class="rank-plays">95 次</span>
+                        <div class="rank-bar" style="width: 50%"></div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">4</span>
+                        <span class="rank-game">快速反应</span>
+                        <span class="rank-plays">67 次</span>
+                        <div class="rank-bar" style="width: 40%"></div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">5</span>
+                        <span class="rank-game">幸运转盘</span>
+                        <span class="rank-plays">54 次</span>
+                        <div class="rank-bar" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 在欢笑中创造更多回忆 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/games-planet.js"></script>
+</body>
+</html>

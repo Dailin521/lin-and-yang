@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的小宇宙 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="wishlist.html">心愿</a></li>
+                <li><a href="interactive.html">互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-space">
+        <div class="container">
+            <div class="floating-content">
+                <h2 class="hero-title">
+                    <span class="glow">我们的</span><br>
+                    <span class="glow">小宇宙</span>
+                </h2>
+                <p class="hero-text">在这个浩瀚星空中<br>你是我最亮的星</p>
+
+                <div class="stats-constellation">
+                    <div class="stat-star">
+                        <div class="star-glow"></div>
+                        <span class="stat-num" data-count="365">0</span>
+                        <span class="stat-label">个日子</span>
+                    </div>
+                    <div class="stat-star">
+                        <div class="star-glow"></div>
+                        <span class="stat-num" data-count="128">0</span>
+                        <span class="stat-label">个回忆</span>
+                    </div>
+                    <div class="stat-star">
+                        <div class="star-glow"></div>
+                        <span class="stat-num">∞</span>
+                        <span class="stat-label">的未来</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="floating-photo">
+                <div class="photo-orb">
+                    <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=600&q=80" alt="我们">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="memories-space">
+        <div class="container">
+            <h3 class="section-title glow">最近的星辰</h3>
+            <div class="memory-orbit">
+                <div class="memory-planet" data-planet="1">
+                    <div class="planet-ring"></div>
+                    <div class="planet-image">
+                        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&q=80" alt="秋日">
+                    </div>
+                    <div class="planet-info">
+                        <span class="planet-date">10.20</span>
+                        <h4 class="planet-name">秋日漫步</h4>
+                    </div>
+                </div>
+
+                <div class="memory-planet" data-planet="2">
+                    <div class="planet-ring"></div>
+                    <div class="planet-image">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="咖啡">
+                    </div>
+                    <div class="planet-info">
+                        <span class="planet-date">10.15</span>
+                        <h4 class="planet-name">午后时光</h4>
+                    </div>
+                </div>
+
+                <div class="memory-planet" data-planet="3">
+                    <div class="planet-ring"></div>
+                    <div class="planet-image">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="周末">
+                    </div>
+                    <div class="planet-info">
+                        <span class="planet-date">10.10</span>
+                        <h4 class="planet-name">温馨周末</h4>
+                    </div>
+                </div>
+
+                <div class="memory-planet" data-planet="4">
+                    <div class="planet-ring"></div>
+                    <div class="planet-image">
+                        <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=400&q=80" alt="日落">
+                    </div>
+                    <div class="planet-info">
+                        <span class="planet-date">09.25</span>
+                        <h4 class="planet-name">海边日落</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wish-constellation">
+        <div class="container">
+            <div class="wish-box">
+                <div class="wish-glow"></div>
+                <span class="wish-label">✨ 下一个心愿</span>
+                <h3 class="wish-title glow">一起去看海上星空</h3>
+                <p class="wish-desc">躺在沙滩上，数着星星，听海浪声</p>
+                <a href="universe.html" class="wish-btn">
+                    <span>探索更多</span>
+                    <span class="btn-glow"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 在我们的小宇宙里，每一天都闪闪发光 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

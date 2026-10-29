@@ -1,0 +1,353 @@
+/* 互动游戏页面 */
+.interactive-hero {
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+}
+
+.game-section {
+    padding: 3rem 2rem 8rem;
+}
+
+.game-card {
+    background: rgba(30, 27, 60, 0.6);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.game-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.game-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 2rem;
+    color: var(--cyan);
+    margin-bottom: 0.8rem;
+}
+
+.game-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+}
+
+/* 爱心树 */
+.love-tree {
+    text-align: center;
+}
+
+.tree-container {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 2rem;
+}
+
+.tree-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100px;
+    background: linear-gradient(to bottom, #8B4513, #654321);
+    border-radius: 5px;
+}
+
+.tree-leaves {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+}
+
+.leaf {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, var(--cyan), var(--cosmic-purple));
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: leaf-float 3s ease-in-out infinite;
+}
+
+.leaf:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.leaf:nth-child(2) { top: 30px; left: 10px; animation-delay: 0.5s; }
+.leaf:nth-child(3) { top: 30px; right: 10px; animation-delay: 1s; }
+.leaf:nth-child(4) { top: 70px; left: 20px; animation-delay: 1.5s; }
+.leaf:nth-child(5) { top: 70px; right: 20px; animation-delay: 2s; }
+
+@keyframes leaf-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.tree-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: heart-pop 2s ease-in-out infinite;
+}
+
+.heart:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+.heart:nth-child(2) { top: 40%; right: 20%; animation-delay: 0.7s; }
+.heart:nth-child(3) { top: 60%; left: 40%; animation-delay: 1.4s; }
+
+@keyframes heart-pop {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.tree-stats {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.tree-stats p {
+    margin: 0.5rem 0;
+}
+
+.tree-btn {
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, var(--cyan), var(--cosmic-purple));
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tree-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(123, 104, 238, 0.4);
+}
+
+/* 心情留言板 */
+.mood-board {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mood-input textarea {
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(10, 17, 40, 0.6);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    font-family: inherit;
+    resize: none;
+    margin-bottom: 1.5rem;
+}
+
+.mood-input textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.mood-emotions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.emotion {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.emotion:hover {
+    transform: scale(1.3);
+}
+
+.mood-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--pink), var(--cosmic-purple));
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 3rem;
+}
+
+.mood-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+}
+
+.mood-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mood-msg {
+    background: rgba(10, 17, 40, 0.6);
+    border: 1px solid rgba(123, 104, 238, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.msg-emotion {
+    font-size: 2rem;
+}
+
+.msg-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+}
+
+.msg-time {
+    font-size: 0.9rem;
+    color: var(--pink);
+}
+
+/* 星座连线游戏 */
+.constellation-game {
+    text-align: center;
+}
+
+#constellation {
+    max-width: 100%;
+    height: auto;
+    background: rgba(10, 17, 40, 0.8);
+    border-radius: 15px;
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    cursor: crosshair;
+    margin-bottom: 2rem;
+}
+
+.game-controls {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.control-btn {
+    padding: 0.8rem 2rem;
+    background: rgba(123, 104, 238, 0.3);
+    border: 2px solid var(--cosmic-purple);
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.control-btn:hover {
+    background: var(--cosmic-purple);
+    transform: translateY(-2px);
+}
+
+.game-tip {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+}
+
+/* 倒计时 */
+.countdown-box {
+    text-align: center;
+}
+
+.countdown-event h4 {
+    font-size: 1.8rem;
+    color: var(--pink);
+    margin-bottom: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-num {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--cyan);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.time-label {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 768px) {
+    .interactive-hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .game-section {
+        padding: 2rem 1.5rem 5rem;
+    }
+
+    .game-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .game-title {
+        font-size: 1.6rem;
+    }
+
+    #constellation {
+        width: 100%;
+        height: 300px;
+    }
+
+    .countdown-timer {
+        gap: 1.5rem;
+    }
+
+    .time-num {
+        font-size: 3rem;
+    }
+
+    .mood-msg {
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+
+    .msg-time {
+        grid-column: 2 / 3;
+        text-align: right;
+    }
+}

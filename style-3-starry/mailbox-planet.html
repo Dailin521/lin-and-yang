@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光邮局 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mailbox-planet.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="mailbox-planet.html" class="active">💌 时光邮局</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="planet-hero">
+        <div class="container">
+            <div class="hero-planet">
+                <div class="planet-visual mailbox-planet">
+                    <div class="planet-core mailbox-core"></div>
+                    <div class="planet-ring"></div>
+                    <div class="planet-glow"></div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2 class="planet-title glow">💌 时光邮局</h2>
+                <p class="planet-desc">写给未来的我们，被时光妥善保管</p>
+                <div class="planet-stats">
+                    <span>7 封信</span>
+                    <span>3 个待拆</span>
+                    <span>∞ 的期待</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mailbox-section">
+        <div class="container">
+            <div class="write-letter">
+                <h3 class="section-subtitle">✍️ 给未来的信</h3>
+                <div class="letter-form">
+                    <div class="form-group">
+                        <label for="letter-to">写给谁？</label>
+                        <select id="letter-to" class="form-input">
+                            <option value="both">写给我们</option>
+                            <option value="you">只写给你</option>
+                            <option value="me">只写给我自己</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="letter-date">什么时候拆开？</label>
+                        <input type="date" id="letter-date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="letter-title">信件主题</label>
+                        <input type="text" id="letter-title" class="form-input" placeholder="例如：我们的100天纪念">
+                    </div>
+                    <div class="form-group">
+                        <label for="letter-content">信件内容</label>
+                        <textarea id="letter-content" class="form-textarea" placeholder="写下你想对未来的我们说的话..."></textarea>
+                    </div>
+                    <button class="submit-btn">📮 寄出这封信</button>
+                </div>
+            </div>
+
+            <div class="letters-collection">
+                <h3 class="section-subtitle">📬 已寄出的信</h3>
+
+                <!-- 待拆信件 -->
+                <div class="letters-group">
+                    <h4 class="group-title">⏳ 等待拆开的信</h4>
+                    <div class="letters-grid">
+                        <div class="letter-card sealed">
+                            <div class="letter-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">给我们</span>
+                                    <span class="envelope-icon">💌</span>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">我们的100天纪念</p>
+                                <p class="letter-date">⏰ 2025年2月1日 才能拆开</p>
+                                <span class="countdown">还要等 <strong>95</strong> 天</span>
+                            </div>
+                        </div>
+
+                        <div class="letter-card sealed">
+                            <div class="letter-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">只给你</span>
+                                    <span class="envelope-icon">💕</span>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">我想对你说的秘密</p>
+                                <p class="letter-date">⏰ 2026年2月14日 才能拆开</p>
+                                <span class="countdown">还要等 <strong>108</strong> 天</span>
+                            </div>
+                        </div>
+
+                        <div class="letter-card sealed">
+                            <div class="letter-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">写给我自己</span>
+                                    <span class="envelope-icon">🎁</span>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">一年后的我</p>
+                                <p class="letter-date">⏰ 2027年10月24日 才能拆开</p>
+                                <span class="countdown">还要等 <strong>359</strong> 天</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 已拆信件 -->
+                <div class="letters-group">
+                    <h4 class="group-title">✨ 已经拆开的信</h4>
+                    <div class="letters-grid">
+                        <div class="letter-card opened">
+                            <div class="letter-envelope opened-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">给我们</span>
+                                    <span class="envelope-icon">💌</span>
+                                </div>
+                                <div class="letter-content-preview">
+                                    <p>亲爱的我们，当你打开这封信时，我们已经走过了50天...</p>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">50天的小确幸</p>
+                                <p class="letter-date">📅 2024年12月13日 已拆开</p>
+                                <button class="reread-btn">重新阅读</button>
+                            </div>
+                        </div>
+
+                        <div class="letter-card opened">
+                            <div class="letter-envelope opened-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">只给你</span>
+                                    <span class="envelope-icon">💕</span>
+                                </div>
+                                <div class="letter-content-preview">
+                                    <p>你知道吗？第一次见你的时候...</p>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">那个闪闪发光的你</p>
+                                <p class="letter-date">📅 2024年11月30日 已拆开</p>
+                                <button class="reread-btn">重新阅读</button>
+                            </div>
+                        </div>
+
+                        <div class="letter-card opened">
+                            <div class="letter-envelope opened-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">给我们</span>
+                                    <span class="envelope-icon">💌</span>
+                                </div>
+                                <div class="letter-content-preview">
+                                    <p>如果你们现在在读这个，说明我们的约定实现了...</p>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">给我们的约定</p>
+                                <p class="letter-date">📅 2024年11月15日 已拆开</p>
+                                <button class="reread-btn">重新阅读</button>
+                            </div>
+                        </div>
+
+                        <div class="letter-card opened">
+                            <div class="letter-envelope opened-envelope">
+                                <div class="envelope-front">
+                                    <span class="envelope-to">给我们</span>
+                                    <span class="envelope-icon">💌</span>
+                                </div>
+                                <div class="letter-content-preview">
+                                    <p>我们第一次一起看星星，你知道吗...</p>
+                                </div>
+                            </div>
+                            <div class="letter-info">
+                                <p class="letter-title">星空下的许愿</p>
+                                <p class="letter-date">📅 2024年10月28日 已拆开</p>
+                                <button class="reread-btn">重新阅读</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 邮局统计 -->
+            <div class="mailbox-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📬</div>
+                    <div class="stat-content">
+                        <span class="stat-num">7</span>
+                        <span class="stat-label">总信件数</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-content">
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">等待拆开</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✨</div>
+                    <div class="stat-content">
+                        <span class="stat-num">4</span>
+                        <span class="stat-label">已拆开</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💌</div>
+                    <div class="stat-content">
+                        <span class="stat-num">3,245</span>
+                        <span class="stat-label">字数记录</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 时光是最好的邮递员，它会准时把思念送到你手里 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mailbox-planet.js"></script>
+</body>
+</html>

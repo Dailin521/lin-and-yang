@@ -1,0 +1,16 @@
+async(page)=>{
+ const checks=[],audits=[],runtime=[];page.on('pageerror',e=>runtime.push(e.message));await page.setViewportSize({width:390,height:844});
+ const read=()=>page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('our-universe-v3');r.onsuccess=()=>{const db=r.result,q=db.transaction('documents').objectStore('documents').get('universe');q.onsuccess=()=>{resolve(q.result.data);db.close();};};}));
+ const write=data=>page.evaluate(data=>new Promise(resolve=>{const r=indexedDB.open('our-universe-v3');r.onsuccess=()=>{const db=r.result,tx=db.transaction('documents','readwrite');tx.objectStore('documents').put({version:1,data},'universe');tx.oncomplete=()=>{db.close();resolve();};};}),data);
+ const audit=async(name)=>{await page.waitForTimeout(450);await page.addScriptTag({path:'node_modules/axe-core/axe.min.js'});audits.push({name,...await page.evaluate(async()=>{const a=await axe.run({runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}});return {overflow:document.documentElement.scrollWidth>innerWidth,violations:a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))};})});await page.screenshot({path:'output/playwright/'+name+'.png',fullPage:true});};
+ await page.goto('http://127.0.0.1:5177/#/');await page.locator('main h1').waitFor();const backup=await read();
+ try{
+  for(const width of [360,390,768,1440]){await page.setViewportSize({width,height:width<600?844:1000});await page.goto('http://127.0.0.1:5177/#/');await page.waitForTimeout(550);checks.push({name:'Final home width '+width,pass:await page.evaluate(()=>document.documentElement.scrollWidth===innerWidth)});await page.screenshot({path:'output/playwright/home-'+width+'.png',fullPage:true});}
+  await page.setViewportSize({width:390,height:844});await page.goto('http://127.0.0.1:5177/#/play/quiz');await page.getByRole('button',{name:'开始这一局',exact:true}).click();await page.locator('.answerOption').first().waitFor();await page.locator('.answerOption').first().click();await audit('quiz-question-mobile');
+  for(let i=0;i<3;i++){await page.locator('.answerOption').first().click();await page.getByRole('button',{name:i<2?'下一题':'收好答案，交给对方'}).click();}
+  await audit('quiz-handoff-mobile');await page.getByRole('button',{name:/我是.*准备好了/}).click();for(let i=0;i<3;i++){await page.locator('.answerOption').nth(i===2?1:0).click();await page.getByRole('button',{name:i<2?'下一题':'一起揭晓'}).click();}await audit('quiz-reveal-mobile');
+  await page.goto('http://127.0.0.1:5177/#/');await page.getByRole('button',{name:'切换身份或查看资料'}).click();await audit('identity-modal-mobile');await page.keyboard.press('Escape');
+  await page.goto('http://127.0.0.1:5177/#/memories/coast-one');await page.getByRole('link',{name:'编辑回忆'}).click();await page.getByLabel('给这一刻起个名字').waitFor();await page.goBack();await page.getByRole('heading',{name:'风停在你的肩上',exact:true}).waitFor();checks.push({name:'Browser Back returns from memory editor to detail',pass:page.url().endsWith('/memories/coast-one')});
+ }finally{await write(backup);await page.goto('http://127.0.0.1:5177/#/');await page.reload();}
+ return {checks,audits,runtime,failed:[...checks.filter(c=>!c.pass),...audits.filter(a=>a.overflow||a.violations.length)]};
+}

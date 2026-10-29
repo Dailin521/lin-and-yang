@@ -1,0 +1,446 @@
+/* 音乐星球页面 */
+.planet-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+.planet-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.hero-planet {
+    display: flex;
+    justify-content: center;
+}
+
+.planet-visual {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.music-core {
+    background: radial-gradient(circle at 35% 35%, #FF1493, #9D4EDD) !important;
+    filter: drop-shadow(0 0 60px #FF1493) drop-shadow(0 0 30px #9D4EDD) !important;
+}
+
+.planet-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    width: 260px;
+    height: 70px;
+    border: 3px solid #FF1493;
+    border-radius: 50%;
+    opacity: 0.6;
+    box-shadow: 0 0 30px #FF1493;
+}
+
+.planet-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    height: 330px;
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2), transparent 70%);
+    border-radius: 50%;
+    animation: pulse-large 3s ease-in-out infinite;
+}
+
+@keyframes pulse-large {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+.hero-text {
+    padding: 2rem;
+}
+
+.planet-title {
+    font-size: 3.5rem;
+    color: #FF1493;
+    margin-bottom: 1.5rem;
+}
+
+.planet-desc {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.planet-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.planet-stats span {
+    font-size: 1.1rem;
+    color: var(--cosmic-teal);
+    background: rgba(46, 196, 182, 0.15);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(46, 196, 182, 0.3);
+}
+
+/* 音乐区域 */
+.music-section {
+    padding: 4rem 2rem;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    color: #FF1493;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* 播放器 */
+.player-card {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(157, 78, 221, 0.1));
+    border: 2px solid rgba(255, 20, 147, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.player-album {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+}
+
+.player-album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+.player-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(0, 0, 0, 0.5));
+}
+
+.player-controls {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.player-title {
+    font-size: 2rem;
+    color: #FF1493;
+    margin: 0;
+}
+
+.player-artist {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 20, 147, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(90deg, #FF1493, #9D4EDD);
+    border-radius: 3px;
+}
+
+.player-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.player-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 20, 147, 0.2);
+    border: 2px solid rgba(255, 20, 147, 0.5);
+    border-radius: 50%;
+    color: #FF1493;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-icon:hover {
+    background: #FF1493;
+    color: white;
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+}
+
+/* 歌单 */
+.playlists {
+    margin-bottom: 5rem;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.playlist-card {
+    background: rgba(30, 27, 60, 0.7);
+    border: 2px solid rgba(255, 20, 147, 0.3);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.playlist-card:hover {
+    transform: translateY(-10px);
+    border-color: #FF1493;
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+}
+
+.playlist-cover {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.playlist-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: transform 0.4s;
+}
+
+.playlist-card:hover .playlist-cover img {
+    transform: scale(1.1);
+}
+
+.song-count {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #FF1493;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.playlist-card > div:not(.playlist-cover) {
+    padding: 1.5rem;
+}
+
+.playlist-name {
+    font-size: 1.4rem;
+    color: #FF1493;
+    margin-bottom: 0.5rem;
+}
+
+.playlist-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.playlist-artists {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.artist-tag {
+    font-size: 0.85rem;
+    background: rgba(255, 20, 147, 0.2);
+    color: #FF1493;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 20, 147, 0.3);
+}
+
+/* 歌曲列表 */
+.favorite-songs {
+    margin-bottom: 5rem;
+}
+
+.songs-list {
+    background: rgba(30, 27, 60, 0.7);
+    border: 2px solid rgba(255, 20, 147, 0.3);
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.song-item {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 40px 1fr 80px 50px;
+    gap: 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 20, 147, 0.1);
+    transition: all 0.3s;
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.song-item:hover {
+    background: rgba(255, 20, 147, 0.1);
+}
+
+.song-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF1493;
+}
+
+.song-info {
+    min-width: 0;
+}
+
+.song-title {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.song-duration {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.play-song-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 20, 147, 0.2);
+    border: 2px solid rgba(255, 20, 147, 0.5);
+    border-radius: 50%;
+    color: #FF1493;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.play-song-btn:hover {
+    background: #FF1493;
+    color: white;
+}
+
+/* 统计 */
+.music-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(30, 27, 60, 0.7);
+    border: 2px solid rgba(255, 20, 147, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: #FF1493;
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat-num {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FF1493;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+    .planet-hero .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .player-card {
+        grid-template-columns: 1fr;
+    }
+
+    .player-album {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .planet-hero {
+        padding: 3rem 1.5rem;
+    }
+
+    .planet-title {
+        font-size: 2.5rem;
+    }
+
+    .music-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .song-item {
+        grid-template-columns: 30px 1fr 40px;
+        gap: 1rem;
+    }
+
+    .song-duration {
+        display: none;
+    }
+
+    .music-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

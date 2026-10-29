@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回忆星球 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/memories-planet.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="memories-planet.html" class="active">📸 回忆星球</a></li>
+                <li><a href="wishlist.html">心愿</a></li>
+                <li><a href="interactive.html">互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="planet-hero">
+        <div class="container">
+            <div class="hero-planet">
+                <div class="planet-visual">
+                    <div class="planet-core"></div>
+                    <div class="planet-ring"></div>
+                    <div class="planet-glow"></div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2 class="planet-title glow">📸 回忆星球</h2>
+                <p class="planet-desc">我们一起拍摄的每一个瞬间都在这里闪闪发光</p>
+                <div class="planet-stats">
+                    <span>128 张照片</span>
+                    <span>32 次出游</span>
+                    <span>∞ 个回忆</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="memories-grid">
+        <div class="container">
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="date">按日期</button>
+                <button class="filter-btn" data-filter="location">按地点</button>
+                <button class="filter-btn" data-filter="people">双人照</button>
+            </div>
+
+            <div class="photos-collection">
+                <!-- 第一组：秋日约会 -->
+                <div class="memory-group" data-date="2024.10.24">
+                    <h3 class="group-title">秋日漫步</h3>
+                    <span class="group-date">2024年10月24日</span>
+                    <div class="photos-row">
+                        <div class="photo-card rotating">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&q=80" alt="秋日1">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">银杏叶落满小道</p>
+                                <span class="photo-credit">你拍的我</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-card floating">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80" alt="秋日2">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">山顶看风景</p>
+                                <span class="photo-credit">我拍的你</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-card pulse">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?w=400&q=80" alt="秋日3">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">一起走的路</p>
+                                <span class="photo-credit">自拍合照</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二组：咖啡时光 -->
+                <div class="memory-group" data-date="2024.10.15">
+                    <h3 class="group-title">午后咖啡</h3>
+                    <span class="group-date">2024年10月15日</span>
+                    <div class="photos-row">
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="咖啡1">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">阳光透过窗帘</p>
+                                <span class="photo-credit">光影很美</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&q=80" alt="咖啡2">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">你的咖啡</p>
+                                <span class="photo-credit">拿铁配甜点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三组：夜晚星空 -->
+                <div class="memory-group" data-date="2024.08.15">
+                    <h3 class="group-title">夜晚星空</h3>
+                    <span class="group-date">2024年8月15日</span>
+                    <div class="photos-row">
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80" alt="星空1">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">一起看星星</p>
+                                <span class="photo-credit">数了100颗</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=400&q=80" alt="星空2">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">海边日落</p>
+                                <span class="photo-credit">你靠在我肩膀</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=400&q=80" alt="星空3">
+                            </div>
+                            <div class="photo-info">
+                                <p class="photo-caption">草地野餐</p>
+                                <span class="photo-credit">月光下的回忆</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-hint">
+                <span class="hint-icon">📸</span>
+                <p>在这里记录我们最美的时刻</p>
+                <button class="hint-btn">+ 上传新照片</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 每张照片都是一个美好的回忆 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/memories-planet.js"></script>
+</body>
+</html>

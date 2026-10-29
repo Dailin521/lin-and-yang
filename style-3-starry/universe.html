@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星球系统 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/universe.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html" class="active">星球</a></li>
+                <li><a href="wishlist.html">心愿</a></li>
+                <li><a href="interactive.html">互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="universe-hero">
+        <div class="container">
+            <h2 class="page-title glow">探索我们的星球</h2>
+            <p class="page-subtitle">每个星球都是一个独特的世界</p>
+        </div>
+    </section>
+
+    <section class="solar-system">
+        <div class="container">
+            <div class="planet-grid">
+                <div class="planet-card" data-color="cyan">
+                    <div class="planet-orb">
+                        <div class="orb-glow cyan-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">📸</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">回忆星球</h3>
+                    <p class="planet-desc">记录我们的每一个瞬间</p>
+                    <div class="planet-stats">
+                        <span>128 个回忆</span>
+                    </div>
+                    <a href="memories-planet.html" class="planet-link"></a>
+                </div>
+
+                <div class="planet-card" data-color="pink">
+                    <div class="planet-orb">
+                        <div class="orb-glow pink-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">💫</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">心愿星球</h3>
+                    <p class="planet-desc">想和你一起做的事</p>
+                    <div class="planet-stats">
+                        <span>12 个心愿</span>
+                    </div>
+                    <a href="wishlist.html" class="planet-link"></a>
+                </div>
+
+                <div class="planet-card" data-color="purple">
+                    <div class="planet-orb">
+                        <div class="orb-glow purple-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">🎮</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">游戏星球</h3>
+                    <p class="planet-desc">一起玩耍的小天地</p>
+                    <div class="planet-stats">
+                        <span>5 个游戏</span>
+                    </div>
+                    <a href="games-planet.html" class="planet-link"></a>
+                </div>
+
+                <div class="planet-card" data-color="gold">
+                    <div class="planet-orb">
+                        <div class="orb-glow gold-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">💌</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">时光邮局</h3>
+                    <p class="planet-desc">写给未来的我们</p>
+                    <div class="planet-stats">
+                        <span>7 封信</span>
+                    </div>
+                </div>
+
+                <div class="planet-card" data-color="cyan">
+                    <div class="planet-orb">
+                        <div class="orb-glow cyan-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">🎵</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">音乐星球</h3>
+                    <p class="planet-desc">我们的专属歌单</p>
+                    <div class="planet-stats">
+                        <span>42 首歌</span>
+                    </div>
+                </div>
+
+                <div class="planet-card" data-color="pink">
+                    <div class="planet-orb">
+                        <div class="orb-glow pink-glow"></div>
+                        <div class="orb-content">
+                            <span class="planet-icon">🔮</span>
+                        </div>
+                    </div>
+                    <h3 class="planet-title">秘密基地</h3>
+                    <p class="planet-desc">只属于我们的空间</p>
+                    <div class="planet-stats">
+                        <span class="locked">🔒 需要密码</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 在我们的小宇宙里，每一天都闪闪发光 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

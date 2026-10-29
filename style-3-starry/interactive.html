@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互动游戏 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interactive.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="wishlist.html">心愿</a></li>
+                <li><a href="interactive.html" class="active">互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="interactive-hero">
+        <div class="container">
+            <h2 class="page-title glow">一起玩吧</h2>
+            <p class="page-subtitle">在这里留下我们的足迹</p>
+        </div>
+    </section>
+
+    <section class="game-section">
+        <div class="container">
+            <!-- 爱心树 -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3 class="game-title">💖 爱心树</h3>
+                    <p class="game-desc">每天点一次，看它慢慢长大</p>
+                </div>
+                <div class="love-tree">
+                    <div class="tree-container">
+                        <div class="tree-trunk"></div>
+                        <div class="tree-leaves">
+                            <div class="leaf"></div>
+                            <div class="leaf"></div>
+                            <div class="leaf"></div>
+                            <div class="leaf"></div>
+                            <div class="leaf"></div>
+                        </div>
+                        <div class="tree-hearts">
+                            <span class="heart">❤️</span>
+                            <span class="heart">💕</span>
+                            <span class="heart">💖</span>
+                        </div>
+                    </div>
+                    <div class="tree-stats">
+                        <p>成长天数: <span class="glow">365</span> 天</p>
+                        <p>爱心数量: <span class="glow">1,024</span> 个</p>
+                    </div>
+                    <button class="tree-btn">今日浇水 💧</button>
+                </div>
+            </div>
+
+            <!-- 心情日记 -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3 class="game-title">📝 心情留言板</h3>
+                    <p class="game-desc">记录此刻的感受</p>
+                </div>
+                <div class="mood-board">
+                    <div class="mood-input">
+                        <textarea placeholder="今天想对TA说什么？" rows="4"></textarea>
+                        <div class="mood-emotions">
+                            <button class="emotion">😊</button>
+                            <button class="emotion">🥰</button>
+                            <button class="emotion">😘</button>
+                            <button class="emotion">🤗</button>
+                            <button class="emotion">💕</button>
+                        </div>
+                        <button class="mood-submit">发送到星空 ✨</button>
+                    </div>
+                    <div class="mood-messages">
+                        <div class="mood-msg">
+                            <span class="msg-emotion">🥰</span>
+                            <p class="msg-text">今天天气很好，想你了</p>
+                            <span class="msg-time">2小时前</span>
+                        </div>
+                        <div class="mood-msg">
+                            <span class="msg-emotion">😘</span>
+                            <p class="msg-text">晚安，做个好梦</p>
+                            <span class="msg-time">昨天 22:30</span>
+                        </div>
+                        <div class="mood-msg">
+                            <span class="msg-emotion">💕</span>
+                            <p class="msg-text">周末一起去看电影吧</p>
+                            <span class="msg-time">3天前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 星座连线 -->
+            <div class="game-card full-width">
+                <div class="game-header">
+                    <h3 class="game-title">✨ 星座连线</h3>
+                    <p class="game-desc">连接星星，创造属于我们的专属星座</p>
+                </div>
+                <div class="constellation-game">
+                    <canvas id="constellation" width="800" height="400"></canvas>
+                    <div class="game-controls">
+                        <button class="control-btn" id="clearBtn">清空画布</button>
+                        <button class="control-btn" id="saveBtn">保存星座</button>
+                    </div>
+                    <p class="game-tip">💡 点击星星来连线，创造独一无二的图案</p>
+                </div>
+            </div>
+
+            <!-- 倒计时 -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3 class="game-title">⏰ 纪念日倒计时</h3>
+                    <p class="game-desc">期待下一个重要时刻</p>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-event">
+                        <h4>下次见面</h4>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-num glow">3</span>
+                                <span class="time-label">天</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-num glow">12</span>
+                                <span class="time-label">时</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-num glow">34</span>
+                                <span class="time-label">分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 在我们的小宇宙里，每一天都闪闪发光 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/interactive.js"></script>
+</body>
+</html>

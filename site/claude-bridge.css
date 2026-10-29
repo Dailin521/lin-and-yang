@@ -1,0 +1,21 @@
+/* Publication-only navigation. Original Claude source files remain unchanged. */
+.nav-menu .edition-return { color: #d8c9f1; }
+.nav-menu .edition-return:before { content: '← '; }
+.nav-menu a { display: inline-flex; align-items: center; min-height: 36px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #bcefff; outline-offset: 5px; }
+@media (max-width: 850px) { .nav-menu { flex-wrap: wrap; justify-content: center; gap: .5rem 1.4rem; } }
+@media (max-width: 600px) {
+  .planet-hero { overflow: clip; }
+  .planet-hero .container { width: 100%; min-width: 0; padding-inline: 0; grid-template-columns: minmax(0, 1fr); }
+  .planet-hero .hero-planet, .planet-hero .hero-text { min-width: 0; }
+  .planet-hero .hero-text { padding: 1.5rem .5rem; }
+  .planet-hero .planet-stats { flex-wrap: wrap; justify-content: center; gap: .7rem; }
+  .planet-hero .planet-stats span { padding: .7rem 1rem; }
+  .planet-hero .planet-title, .planet-hero .planet-desc { overflow-wrap: anywhere; }
+  .mailbox-stats, .music-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .mailbox-stats .stat-card, .music-stats .stat-card { min-width: 0; padding: 1.5rem .8rem; }
+  .player-card { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+  .player-controls { min-width: 0; padding: 2rem 1rem; }
+  .player-buttons { gap: 1rem; }
+  .playlist-grid { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心愿星球 - 星空梦幻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <h1 class="nav-logo">✨ 我们的小宇宙</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="universe.html">星球</a></li>
+                <li><a href="wishlist.html" class="active">心愿</a></li>
+                <li><a href="interactive.html">互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="wishlist-hero">
+        <div class="container">
+            <h2 class="page-title glow">💫 心愿星球</h2>
+            <p class="page-subtitle">想和你一起完成的事</p>
+        </div>
+    </section>
+
+    <section class="wish-constellation">
+        <div class="container">
+            <div class="wish-list">
+                <div class="wish-star pending" data-wish="1">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🌊</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">一起去看海</h3>
+                        <p class="wish-detail">看日出，听海浪，光脚走在沙滩上</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="2">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🏔️</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">爬一座高山</h3>
+                        <p class="wish-detail">登顶看云海，拍下最美的风景</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star completed" data-wish="3">
+                    <div class="star-ring completed-ring"></div>
+                    <div class="wish-icon">☕</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">探访特色咖啡馆</h3>
+                        <p class="wish-detail">找到了那家隐藏在巷子里的小店</p>
+                        <div class="wish-progress">
+                            <span class="wish-status completed-status">✅ 已完成 · 2024.10.15</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="4">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🎬</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">包场看一次电影</h3>
+                        <p class="wish-detail">只属于我们两个人的放映厅</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star completed" data-wish="5">
+                    <div class="star-ring completed-ring"></div>
+                    <div class="wish-icon">🍰</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">一起做蛋糕</h3>
+                        <p class="wish-detail">虽然做得不太好看，但很开心</p>
+                        <div class="wish-progress">
+                            <span class="wish-status completed-status">✅ 已完成 · 2024.09.20</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="6">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🌸</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">春天赏樱花</h3>
+                        <p class="wish-detail">在樱花树下拍一百张照片</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="7">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🎨</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">一起画一幅画</h3>
+                        <p class="wish-detail">把我们的故事画下来</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star completed" data-wish="8">
+                    <div class="star-ring completed-ring"></div>
+                    <div class="wish-icon">📚</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">共读一本书</h3>
+                        <p class="wish-detail">每晚睡前读几页，聊聊感受</p>
+                        <div class="wish-progress">
+                            <span class="wish-status completed-status">✅ 已完成 · 2024.08.30</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="9">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🎆</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">跨年看烟火</h3>
+                        <p class="wish-detail">一起迎接新的一年</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="10">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🏡</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">装饰我们的小窝</h3>
+                        <p class="wish-detail">每一个角落都有我们的回忆</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="11">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🎭</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">看一场音乐剧</h3>
+                        <p class="wish-detail">在剧场里感受艺术的魅力</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+
+                <div class="wish-star pending" data-wish="12">
+                    <div class="star-ring"></div>
+                    <div class="wish-icon">🎈</div>
+                    <div class="wish-content">
+                        <h3 class="wish-name">坐热气球</h3>
+                        <p class="wish-detail">在高空俯瞰这个世界</p>
+                        <div class="wish-progress">
+                            <span class="wish-status">✨ 等待实现</span>
+                        </div>
+                    </div>
+                    <div class="star-particles"></div>
+                </div>
+            </div>
+
+            <div class="add-wish-btn-container">
+                <button class="add-wish-btn">
+                    <span>✨</span>
+                    <span>添加新心愿</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="wish-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💫</div>
+                    <div class="stat-num">12</div>
+                    <div class="stat-label">心愿总数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-num">3</div>
+                    <div class="stat-label">已完成</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-num">9</div>
+                    <div class="stat-label">进行中</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-num">25%</div>
+                    <div class="stat-label">完成率</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-space">
+        <p>✨ 每个心愿都是一颗等待点亮的星星 ✨</p>
+    </footer>
+
+    <script src="js/stars.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

@@ -2,6 +2,20 @@
 
 验证日期：2026-10-29。环境：Windows、Chrome / Chromium、Playwright CLI。开发服务 `127.0.0.1:5177`，生产预览 `127.0.0.1:4177`。
 
+## 梦幻动效更新 · 2026-10-29
+
+本次在与 Pages 路径一致的 `http://127.0.0.1:4180/lin-and-yang/codex/` 生产包上检查，脚本为仓库根目录 `scripts/verify-dream.js`。32 / 32 断言通过，无运行时错误。
+
+- 360 / 390 / 768 / 1440px 无横向溢出，照片加载完整；查看最终桌面、手机、流星、点击反馈与导航星球截图。
+- 实际 Canvas 绘制确认流星出现；前景星尘有可见像素，结束后完全清除，叠层不拦截鼠标和触控。
+- 键盘激活星球能进入回忆并产生反馈；手机真实触屏事件模拟能点出星尘、切换导航和打开身份弹窗。滑动手势与表单输入不触发粒子。
+- 暂停后星空像素保持不变、前景清空、星球循环停止，刷新仍保持暂停；恢复后重新变化。系统减少动态效果优先，保持静态光色。
+- 滚动离开首页星球后其循环动画暂停；首页 Axe WCAG A / AA 扫描无违规。
+- Chrome 桌面与 390px 触屏模拟的背景绘制均约 30 FPS，95% 帧间隔为 34ms；手机 Canvas 像素比限制在 1.5。这是本机模拟测量，不代表真机硬件测试。
+- `npm run check`、`npm test`（6 项）、`npm run build` 通过。Impeccable 机械检测本次改动返回空结果。
+
+本机证据位于仓库根目录 `output/playwright/dream-results.json`、`dream-final-360.png`、`dream-final-390.png`、`dream-final-768.png`、`dream-final-1440.png`、`dream-feedback-final.png` 与 `dream-reduced-motion.png`。只改 Codex 特效及总首页的 Codex 预览图，Claude 与业务数据模型保持原样。
+
 ## 结果
 
 | 检查 | 实际结果 | 证据 |

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -73,6 +73,24 @@ const planets = [
 ];
 export default function Home() {
   const { data } = useUniverse();
+  const heroScene = useRef<HTMLDivElement>(null);
+  const planetSection = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          (entry.target as HTMLElement).dataset.inView = String(
+            entry.isIntersecting,
+          );
+        });
+      },
+      { rootMargin: "80px" },
+    );
+    [heroScene.current, planetSection.current].forEach(
+      (el) => el && observer.observe(el),
+    );
+    return () => observer.disconnect();
+  }, []);
   const recent = [...data.memories]
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);
@@ -129,14 +147,12 @@ export default function Home() {
               className="button secondary"
               onClick={(e) => {
                 e.preventDefault();
-                document
-                  .getElementById("planets")
-                  ?.scrollIntoView({
-                    behavior:
-                      document.documentElement.dataset.motion === "on"
-                        ? "smooth"
-                        : "instant",
-                  });
+                document.getElementById("planets")?.scrollIntoView({
+                  behavior:
+                    document.documentElement.dataset.motion === "on"
+                      ? "smooth"
+                      : "instant",
+                });
               }}
             >
               <Orbit size={18} />
@@ -166,8 +182,13 @@ export default function Home() {
         </div>
         <div
           className="orbitalScene"
+          ref={heroScene}
           onPointerMove={(e) => {
-            if (document.documentElement.dataset.motion !== "on") return;
+            if (
+              document.documentElement.dataset.motion !== "on" ||
+              e.pointerType !== "mouse"
+            )
+              return;
             const r = e.currentTarget.getBoundingClientRect();
             e.currentTarget.style.setProperty(
               "--mx",
@@ -184,23 +205,26 @@ export default function Home() {
           }}
         >
           <div className="sceneInner">
-            <div className="heroAura" />
-            <div className="orbitRing ringOne">
+            <div className="heroAura" aria-hidden="true" />
+            <div className="orbitRing ringOne" aria-hidden="true">
               <i />
             </div>
-            <div className="orbitRing ringTwo">
+            <div className="orbitRing ringTwo" aria-hidden="true">
               <i />
             </div>
-            <div className="orbitRing ringThree" />
+            <div className="orbitRing ringThree" aria-hidden="true" />
             <Link
               to={featured ? `/memories/${featured.id}` : "/memories/new"}
               className="mainPlanet"
               aria-label="打开星球里的回忆"
             >
+              <span className="planetAtmosphere" aria-hidden="true" />
+              <span className="planetBand" aria-hidden="true" />
               <div className="planetPhoto">
                 <AssetImage src={mainPhoto} alt="被星光环绕的回忆照片" />
                 <div className="planetShadow" />
               </div>
+              <span className="planetBand planetBandFront" aria-hidden="true" />
               <span className="planetCaption">
                 <Sparkles size={14} />
                 这里，藏着我们的故事
@@ -218,12 +242,12 @@ export default function Home() {
                 <AssetImage src={m.photos[0]} alt={m.title} />
               </Link>
             ))}
-            <span className="tinyPlanet tinyOne" />
-            <span className="tinyPlanet tinyTwo" />
-            <span className="orbitSpark sparkOne">
+            <span className="tinyPlanet tinyOne" aria-hidden="true" />
+            <span className="tinyPlanet tinyTwo" aria-hidden="true" />
+            <span className="orbitSpark sparkOne" aria-hidden="true">
               <Sparkles />
             </span>
-            <span className="orbitSpark sparkTwo">
+            <span className="orbitSpark sparkTwo" aria-hidden="true">
               <Star size={14} fill="currentColor" />
             </span>
             <div className="sceneNote">
@@ -233,7 +257,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="planets" className="planetSection">
+      <section id="planets" className="planetSection" ref={planetSection}>
         <div className="sectionHeading">
           <div>
             <h2>去一颗星球，待一会儿</h2>
@@ -253,7 +277,8 @@ export default function Home() {
               key={to}
               style={{ "--delay": `${i * -0.9}s` } as React.CSSProperties}
             >
-              <div className="destinationOrb">
+              <div className="destinationOrb" aria-hidden="true">
+                <span className="destinationGlow" />
                 <span className="destinationHalo" />
                 <span className="destinationCore">
                   <Icon size={35} strokeWidth={1.45} />

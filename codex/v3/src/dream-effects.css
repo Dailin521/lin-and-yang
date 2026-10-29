@@ -1,0 +1,297 @@
+/* The same cyan / violet / rose light runs from the sky into its planets. */
+.cosmicFeedback {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 120;
+}
+.nebula {
+  background:
+    radial-gradient(ellipse at 75% 25%, #141332, transparent 65%), #080b22;
+}
+.nebula i {
+  filter: none;
+  opacity: 0.52;
+  animation-duration: 32s;
+}
+.nebula i:nth-child(1) {
+  width: min(1100px, 100vw);
+  height: min(1000px, 100vh);
+  top: -25%;
+  right: -22%;
+  background: radial-gradient(
+    ellipse,
+    #8052bc55,
+    #73329120 40%,
+    transparent 70%
+  );
+}
+.nebula i:nth-child(2) {
+  width: min(900px, 90vw);
+  height: min(900px, 100vh);
+  top: 25%;
+  left: -35%;
+  background: radial-gradient(
+    ellipse,
+    #2585aa36,
+    #22638c15 40%,
+    transparent 70%
+  );
+}
+.nebula i:nth-child(3) {
+  width: min(900px, 100vw);
+  height: min(800px, 90vh);
+  top: 38%;
+  right: -26%;
+  background: radial-gradient(
+    ellipse,
+    #a84d9d36,
+    #78387f15 45%,
+    transparent 70%
+  );
+}
+.hero h1 {
+  text-shadow:
+    0 0 26px #c7c6ff24,
+    0 0 55px #a4a5ff18;
+}
+.hero h1 span {
+  background-image: linear-gradient(105deg, #79edff 8%, #c6b0ff 53%, #ffb7e8);
+  filter: drop-shadow(0 0 18px #bba5ff4f);
+}
+.heroStats strong {
+  color: #b8f3ff;
+  text-shadow: 0 0 22px #61e1ff3d;
+}
+.heroAura {
+  inset: 3% -2%;
+  border-radius: 0;
+  filter: none;
+  background:
+    radial-gradient(ellipse closest-side at 65% 45%, #c269d331, transparent),
+    radial-gradient(ellipse closest-side at 36% 56%, #4ea6df29, transparent);
+  animation: atmosphereBreathe 8s ease-in-out -3s infinite;
+  pointer-events: none;
+}
+.mainPlanet {
+  isolation: isolate;
+}
+.planetAtmosphere {
+  position: absolute;
+  inset: -24%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 52% 50%,
+    transparent 32%,
+    #b77bff38 44%,
+    #f68acd24 50%,
+    transparent 69%
+  );
+  animation: atmosphereBreathe 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.planetPhoto {
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px #e0d4ffb3,
+    0 0 25px #ac91f86b,
+    0 0 65px #a475e052,
+    0 0 110px #f284d126;
+}
+.planetPhoto img {
+  filter: saturate(1.02) brightness(0.97);
+}
+.planetShadow {
+  box-shadow:
+    inset -22px -18px 45px #100b3194,
+    inset 3px 3px 16px #d4e8ff70;
+  background: linear-gradient(135deg, #88dbff12, transparent 40%, #50287429);
+}
+.planetBand {
+  position: absolute;
+  inset: -9% -26%;
+  border: 3px solid #c7a8ef80;
+  border-top-color: #a5ddffb3;
+  border-bottom-color: #e3b4f1c7;
+  border-radius: 50%;
+  transform: rotate(-25deg) scaleY(0.3);
+  box-shadow:
+    0 0 0 5px #c9a0ed12,
+    0 0 0 9px #bbadf71a,
+    0 0 22px #b5a3ff5e,
+    inset 0 0 16px #bda0e652;
+  pointer-events: none;
+  z-index: 1;
+}
+.planetBandFront {
+  z-index: 3;
+  clip-path: inset(50% -5% -15%);
+}
+.mainPlanet:is(:hover, :focus-visible) .planetPhoto {
+  transform: scale(1.035);
+  box-shadow:
+    0 0 0 2px #e3c9ffcc,
+    0 0 42px #b096ff91,
+    0 0 90px #ee86d547;
+}
+.planetCaption {
+  z-index: 4;
+}
+.satellite {
+  box-shadow:
+    0 0 0 1px #bedbffa6,
+    0 0 24px #aa8fff4f,
+    0 0 45px #78c9ff26;
+}
+.satellite img {
+  filter: saturate(0.95) brightness(0.94);
+}
+.satellite:is(:hover, :focus-visible) {
+  box-shadow:
+    0 0 0 2px #e0cbffcc,
+    0 0 38px #ad92ff91;
+}
+.orbitRing {
+  border-color: #b9a6f64f;
+}
+.ringOne {
+  box-shadow: 0 0 28px #aa8ff512;
+}
+.ringTwo {
+  border-color: #8be9ff36;
+}
+.ringThree {
+  border-color: #b9a5ed24;
+}
+.orbitRing i {
+  left: 0;
+  top: 0;
+  offset-path: ellipse(50% 50% at 50% 50%);
+  offset-distance: 14%;
+  offset-rotate: 0deg;
+  animation: orbitTravel 24s linear infinite;
+  box-shadow:
+    0 0 5px #fff,
+    0 0 15px var(--cyan),
+    0 0 30px #71dafa73;
+}
+.ringTwo i {
+  offset-distance: 64%;
+  animation-duration: 32s;
+  animation-delay: -16s;
+  animation-direction: reverse;
+  box-shadow:
+    0 0 5px #fff,
+    0 0 15px var(--pink),
+    0 0 30px #ed9be073;
+}
+.tinyOne {
+  box-shadow:
+    0 0 10px #c3a0ff70,
+    0 0 25px #b98bf554;
+}
+.tinyOne:after {
+  content: "";
+  position: absolute;
+  inset: 30% -45%;
+  border: 1px solid #e2bdffb3;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+  box-shadow: 0 0 9px #c9a3e84d;
+}
+.destinationGlow {
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--tonergb), 0.3),
+    rgba(var(--tonergb), 0.09) 40%,
+    transparent 67%
+  );
+  animation: atmosphereBreathe 5s ease-in-out var(--delay) infinite;
+  pointer-events: none;
+}
+.destinationCore {
+  position: relative;
+  background: radial-gradient(
+    circle at 28% 22%,
+    rgba(var(--tonergb), 0.37),
+    rgba(var(--tonergb), 0.07) 60%,
+    #10112e 95%
+  );
+  border-color: rgba(var(--tonergb), 0.52);
+  box-shadow:
+    inset 4px 5px 14px rgba(var(--tonergb), 0.16),
+    inset -9px -10px 19px #080b2270,
+    0 0 27px rgba(var(--tonergb), 0.16);
+}
+.destinationCore svg {
+  filter: drop-shadow(0 0 9px rgba(var(--tonergb), 0.65));
+}
+.destinationHalo {
+  border-color: rgba(var(--tonergb), 0.43);
+  box-shadow: 0 0 13px rgba(var(--tonergb), 0.1);
+  z-index: 1;
+}
+.planetDestination:is(:hover, :focus-visible) .destinationCore {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow:
+    inset 4px 5px 14px rgba(var(--tonergb), 0.2),
+    0 0 45px rgba(var(--tonergb), 0.34);
+}
+.planetDestination:is(:hover, :focus-visible) .destinationHalo {
+  transform: translateY(-10px) rotate(-12deg) scale(1.15);
+  border-color: rgba(var(--tonergb), 0.7);
+}
+.planetDestination:focus-visible h3 svg {
+  opacity: 1;
+  transform: none;
+}
+@keyframes atmosphereBreathe {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+}
+@keyframes orbitTravel {
+  to {
+    offset-distance: 114%;
+  }
+}
+@media (max-width: 600px) {
+  .nebula i {
+    opacity: 0.5;
+  }
+  .planetPhoto {
+    box-shadow:
+      0 0 0 1px #e0d4ffb3,
+      0 0 25px #ac91f873,
+      0 0 65px #a475e04d;
+  }
+  .planetBand {
+    border-width: 2px;
+  }
+  .destinationGlow {
+    width: 112px;
+    height: 112px;
+  }
+}
+/* Offscreen worlds rest. The existing global pause and reduced-motion rules
+   stop these animations entirely, retaining the static light and clear focus. */
+[data-in-view="false"] *,
+[data-in-view="false"] *:after,
+[data-sky-visible="false"] *,
+[data-sky-visible="false"] *:after {
+  animation-play-state: paused !important;
+}

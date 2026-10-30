@@ -1,0 +1,1363 @@
+.app {
+  --ink: #5e493e;
+  --paper: #f4e5c5;
+  --green: #46684f;
+  min-height: 100vh;
+  background: #f8f0df;
+  color: var(--ink);
+  font-family: "Noto Sans SC", sans-serif;
+  transition:
+    background 0.4s,
+    color 0.4s;
+}
+.header {
+  max-width: 1450px;
+  margin: auto;
+  padding: 25px 48px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #5e493e20;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.brand > span {
+  font:
+    700 29px "LXGW WenKai",
+    serif;
+  display: grid;
+  line-height: 1.15;
+}
+.brand small {
+  font:
+    11px "Space Grotesk",
+    sans-serif;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+}
+.headerTools {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.headerTools button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+}
+.backSpaces {
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.main {
+  max-width: 1450px;
+  padding: 0 48px;
+  margin: auto;
+}
+.greeting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 34px 0 16px;
+}
+.dayLabel {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #856c58;
+}
+.greeting h1 {
+  font:
+    400 clamp(28px, 3vw, 40px)/1.35 "LXGW WenKai",
+    serif;
+  margin: 12px 0;
+}
+.greeting p {
+  font-size: 13px;
+  color: #806f60;
+  margin: 0;
+}
+.lightToggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 11px 17px;
+  border-radius: 25px;
+  background: #fff9e9;
+  border: 1px solid #d4c7aa;
+  color: #7d6342;
+  font-size: 12px;
+}
+.roomLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 284px;
+  gap: 25px;
+  align-items: center;
+}
+.roomLayout.withPanel {
+  grid-template-columns: minmax(0, 1fr) 365px;
+  align-items: start;
+}
+.sceneSection {
+  min-width: 0;
+}
+.sceneViewport {
+  aspect-ratio: 1.5;
+  overflow: hidden;
+  position: relative;
+  border-radius: 40% 40% 12px 12px;
+  isolation: isolate;
+}
+.sceneCanvas {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 55%;
+  transition: transform 0.6s ease;
+}
+.roomImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.sceneNight .roomImage {
+  filter: brightness(0.48) saturate(0.65);
+}
+.plant {
+  position: absolute;
+  left: 3.4%;
+  top: 39.5%;
+  width: 8.5%;
+  z-index: 4;
+  filter: drop-shadow(3px 4px 2px #55411c25);
+  transition: transform 0.5s;
+}
+.plantHappy {
+  transform: rotate(-3deg);
+}
+.rug,
+.rugThumb {
+  background-color: #e5d3a8;
+  background-image: conic-gradient(
+    #9eaf8d 25%,
+    #f1e4c6 0 50%,
+    #9eaf8d 0 75%,
+    #f1e4c6 0
+  );
+  background-size: 22% 44%;
+  border: 4px solid #e5d3a8;
+  box-shadow: 0 2px 3px #59432730;
+}
+.rug {
+  position: absolute;
+  left: 32%;
+  top: 62%;
+  width: 33%;
+  height: 21%;
+  transform: rotate(21deg) skewX(-31deg) scaleY(0.86);
+  z-index: 1;
+  border-radius: 5px;
+}
+.rugBlue {
+  background: repeating-linear-gradient(90deg, #7e9b9a 0 12%, #e9e6d7 12% 23%);
+  border-color: #e9e6d7;
+}
+.wallArt {
+  position: absolute;
+  left: 49%;
+  top: 19%;
+  width: 12%;
+  aspect-ratio: 1.4;
+  border: 5px solid #a77a48;
+  background: #faf2dc;
+  padding: 4px;
+  transform: rotate(8deg) skewY(1deg);
+  box-shadow: 2px 3px 4px #47301630;
+  z-index: 2;
+}
+.wallArt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fridgeSlip {
+  position: absolute;
+  z-index: 4;
+  width: 2.9%;
+  height: 4%;
+  background: #f6e394;
+  box-shadow: 1px 1px 2px #42271522;
+}
+.slip0 {
+  left: 84.6%;
+  top: 30.4%;
+  transform: rotate(-5deg);
+}
+.slip1 {
+  left: 88%;
+  top: 33%;
+  background: #f1cbb2;
+  transform: rotate(7deg);
+}
+.slip2 {
+  left: 90%;
+  top: 37.3%;
+  background: #d4dfbd;
+  transform: rotate(-3deg);
+}
+.lightLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: transparent;
+  transition: background 0.4s;
+}
+.sceneNight .lightLayer {
+  background: linear-gradient(120deg, #1a293e30, #2a193a18);
+  mix-blend-mode: multiply;
+}
+.lampGlow {
+  position: absolute;
+  left: 58%;
+  top: 0;
+  width: 22%;
+  height: 60%;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at 50% 24%,
+    #ffe6a7a0 0%,
+    #ffd99025 37%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.4s;
+}
+.sceneNight .lampGlow {
+  opacity: 1;
+}
+.sceneNight .plant,
+.sceneNight .rug,
+.sceneNight .wallArt {
+  filter: brightness(0.58);
+}
+.hotspot {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border: 1px solid #ffffffb5;
+  border-radius: 24px;
+  box-shadow: 0 3px 13px #42271722;
+  background: #fff8eaef;
+  padding: 8px 11px;
+  color: #5e493e;
+  font-size: 10px;
+  z-index: 9;
+  white-space: nowrap;
+  transition: transform 0.2s;
+  min-height: 36px;
+}
+.hotspot:hover {
+  transform: translateY(-3px);
+}
+.plantSpot {
+  left: 7%;
+  top: 56%;
+}
+.decorSpot {
+  left: 43%;
+  top: 55%;
+}
+.noteSpot {
+  left: 79%;
+  top: 45%;
+}
+.sceneHint {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #806a50;
+  z-index: 11;
+  pointer-events: none;
+}
+.hintDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #9d875e;
+}
+.areaNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 10px auto 20px;
+  position: relative;
+}
+.areaNav button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  padding: 11px 17px;
+  color: #8a7662;
+  font-size: 12px;
+  min-height: 44px;
+}
+.areaNav .activeArea {
+  background: #e7dcc2;
+  color: #5e493e;
+}
+.homeAside {
+  padding: 24px 0 20px;
+}
+.welcomeNote {
+  background: #fff5cb;
+  padding: 26px 23px;
+  transform: rotate(3deg);
+  position: relative;
+  box-shadow: 2px 5px 7px #5e493e10;
+  border-radius: 0 0 24px 0;
+}
+.welcomeNote:before {
+  content: "";
+  width: 65px;
+  height: 21px;
+  position: absolute;
+  top: -10px;
+  left: 38%;
+  background: #d7d0b395;
+  transform: rotate(-7deg);
+}
+.welcomeNote > span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.welcomeNote p {
+  font:
+    23px/1.7 "LXGW WenKai",
+    serif;
+  margin: 19px 0 14px;
+}
+.welcomeNote small {
+  font:
+    12px "LXGW WenKai",
+    serif;
+  display: block;
+  text-align: right;
+}
+.welcomeNote a {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 22px;
+  color: inherit;
+  font-size: 11px;
+  text-decoration: none;
+}
+.plantSummary {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 45px;
+}
+.plantSummary > img {
+  width: 74px;
+  height: 94px;
+  object-fit: contain;
+}
+.plantSummary h2 {
+  font:
+    19px "LXGW WenKai",
+    serif;
+  margin: 0 0 9px;
+}
+.plantSummary p {
+  font-size: 11px;
+  color: #857464;
+}
+.plantSummary a {
+  font-size: 11px;
+  color: #486a51;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  margin-top: 16px;
+}
+.activityDock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 8px auto 0;
+  max-width: 1100px;
+  border-top: 1px solid #5e493e22;
+  border-bottom: 1px solid #5e493e22;
+  padding: 20px 0;
+}
+.activityDock button {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: inherit;
+  padding: 10px 28px;
+  border-right: 1px solid #5e493e22;
+}
+.activityDock button:last-child {
+  border: 0;
+}
+.activityDock button > svg:last-child {
+  margin-left: auto;
+}
+.activityDock button > span {
+  font:
+    21px "LXGW WenKai",
+    serif;
+  display: grid;
+  gap: 7px;
+}
+.activityDock small {
+  font:
+    11px "Noto Sans SC",
+    sans-serif;
+  color: #897462;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 27px 0;
+  font-size: 10px;
+  color: #8b7763;
+}
+.footer button {
+  border: 0;
+  background: transparent;
+  color: #4b6a51;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-left: 9px;
+  min-height: 35px;
+}
+.panel {
+  border-radius: 16px;
+  background: #fffaf0;
+  box-shadow: 0 3px 30px #4f3b2110;
+  margin: 8px 0 18px;
+  min-width: 0;
+}
+.panelInner {
+  padding: 23px;
+}
+.panelHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px dashed #dbceb6;
+  padding-bottom: 17px;
+  margin-bottom: 20px;
+}
+.panelHead > a {
+  color: inherit;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 32px;
+}
+.panelHead h2 {
+  font:
+    24px "LXGW WenKai",
+    serif;
+  margin: 0;
+  flex: 1;
+}
+.panelHead > svg {
+  color: #9d8669;
+}
+.panelIntro {
+  font:
+    20px/1.8 "LXGW WenKai",
+    serif;
+  margin: 0 0 22px;
+}
+.primary,
+.primaryWide,
+.secondary {
+  min-height: 44px;
+  padding: 11px 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #4c6a51;
+  color: #fffaf0;
+  font:
+    13px "Noto Sans SC",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+.primaryWide {
+  width: 100%;
+}
+.secondary {
+  background: transparent;
+  border-color: #d1c4ad;
+  color: #675541;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.dialog {
+  color: #5e493e;
+  background: #fffaf0;
+  font-family: "Noto Sans SC", sans-serif;
+}
+.dialog h2 {
+  font-family: "LXGW WenKai", serif;
+}
+.dialog p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.roleButtons {
+  display: flex;
+  gap: 10px;
+  margin: 22px 0;
+}
+.roleButtons button {
+  flex: 1;
+  border: 1px solid #d8ccb6;
+  background: transparent;
+  color: inherit;
+  padding: 13px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.selected {
+  background: #e5eddf !important;
+  border-color: #7b997e !important;
+  color: #38543d !important;
+}
+.danger {
+  color: #9b4e40;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  margin: 20px 0 0;
+  min-height: 44px;
+}
+.plantPortrait {
+  height: 230px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.plantPortrait img {
+  height: 220px;
+  width: 210px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.6s;
+}
+.sunCircle {
+  width: 170px;
+  height: 170px;
+  background: #eee7cc;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.watered img {
+  animation: grow 0.8s ease;
+}
+.waterDrop {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #7eaaaa;
+  animation: drop 0.9s ease;
+}
+.centerTitle {
+  font:
+    26px "LXGW WenKai",
+    serif;
+  text-align: center;
+  margin: 15px 0 9px;
+}
+.centerText {
+  font-size: 12px;
+  line-height: 1.9;
+  text-align: center;
+  color: #8a7664;
+  margin-bottom: 22px;
+}
+.carePeople {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 17px 0 25px;
+}
+.carePeople > span {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 10px;
+  color: #647c60;
+}
+.smallHeading {
+  font:
+    19px "LXGW WenKai",
+    serif;
+  margin: 22px 0 15px;
+}
+.careLog {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 230px;
+  overflow: auto;
+}
+.careLog li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e9dfcd;
+}
+.logLeaf {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ebefdf;
+  color: #758967;
+}
+.careLog strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.careLog small {
+  display: block;
+  font-size: 10px;
+  color: #9a8570;
+  margin-top: 5px;
+}
+.success {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #46684f;
+  text-align: center;
+}
+.noteStack {
+  display: grid;
+  gap: 23px;
+  margin: 28px 5px 0;
+}
+.paperNote {
+  display: block;
+  position: relative;
+  background: #f8edbc;
+  box-shadow: 1px 3px 8px #5e493e0c;
+  color: inherit;
+  text-decoration: none;
+  padding: 24px 20px;
+  transform: rotate(-2deg);
+}
+.paperNote:nth-child(2) {
+  transform: rotate(2deg);
+}
+.paperNote p {
+  font:
+    21px/1.7 "LXGW WenKai",
+    serif;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 5px 0 16px;
+}
+.paperNote small {
+  font-size: 10px;
+  color: #8a7559;
+}
+.paper1 {
+  background: #f1d5c1;
+}
+.paper2 {
+  background: #dce4cb;
+}
+.pin {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background: #997456;
+  border-radius: 50%;
+  box-shadow: 1px 2px 2px #0002;
+}
+.noteCorner {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.noteForm {
+  display: grid;
+  gap: 15px;
+}
+.noteForm label {
+  display: grid;
+  gap: 10px;
+  font-size: 12px;
+}
+.noteForm textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 165px;
+  border: 1px solid #ddcfb3;
+  background: #fff9df;
+  color: #5e493e;
+  border-radius: 3px;
+  padding: 16px;
+  font:
+    23px/1.8 "LXGW WenKai",
+    serif;
+}
+.charCount {
+  text-align: right;
+  font-size: 10px;
+  color: #97856b;
+  margin-top: -9px;
+}
+.positionPicker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.positionPicker button {
+  border: 1px solid #d4c9b6;
+  border-radius: 6px;
+  background: transparent;
+  padding: 11px 5px;
+  color: #806b56;
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+}
+.positionMini {
+  width: 30px;
+  height: 38px;
+  border: 1px solid #b4aa96;
+  border-radius: 4px;
+  position: relative;
+}
+.positionMini:after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 10px;
+  background: #ddbd67;
+  left: 4px;
+  top: 5px;
+}
+.position1:after {
+  left: 10px;
+  top: 14px;
+  background: #cc9d83;
+}
+.position2:after {
+  left: 16px;
+  top: 22px;
+  background: #93a77b;
+}
+.noteSignature {
+  font:
+    16px "LXGW WenKai",
+    serif;
+  margin: 3px 0 12px;
+}
+.noteSignature span {
+  display: block;
+  font:
+    10px "Noto Sans SC",
+    sans-serif;
+  margin-top: 10px;
+  color: #95806d;
+}
+.decorTabs {
+  display: flex;
+  border-bottom: 1px solid #ded3be;
+  gap: 6px;
+  padding-bottom: 10px;
+}
+.decorTabs button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  padding: 11px 7px;
+  color: inherit;
+  font-size: 12px;
+}
+.decorOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.decorOptions > button {
+  position: relative;
+  text-align: center;
+  border: 1px solid #dfd5c0;
+  border-radius: 9px;
+  background: #f8f1e1;
+  color: inherit;
+  padding: 7px 8px 13px;
+  font-size: 11px;
+}
+.decorOptions > button > svg {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #537459;
+}
+.decorOptions .chosenDecor {
+  border: 2px solid #7a977a;
+  padding: 6px 7px 12px;
+  background: #f1f1df;
+}
+.decorThumb {
+  height: 120px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+.decorThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.decorThumb img.artThumb {
+  height: 70%;
+  width: 95%;
+  object-fit: cover;
+  border: 4px solid #a57c52;
+  padding: 3px;
+  background: #fff6dc;
+  transform: rotate(6deg);
+}
+.rugThumb {
+  display: block;
+  width: 94%;
+  height: 65%;
+  transform: rotate(-12deg);
+  background-size: 30% 50%;
+}
+.previewHint {
+  font-size: 11px;
+  color: #8a7663;
+  line-height: 1.8;
+  margin: 21px 0;
+}
+.textButton {
+  border: 0;
+  background: transparent;
+  color: #7d6e5c;
+  display: block;
+  margin: 12px auto 0;
+  font-size: 11px;
+  min-height: 35px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.empty {
+  text-align: center;
+  padding: 35px 0;
+  line-height: 1.9;
+  color: #8a7663;
+}
+.loading {
+  padding: 80px;
+  text-align: center;
+}
+.night {
+  background: #302e2a;
+  color: #efdfc0;
+}
+.night .greeting p,
+.night .dayLabel,
+.night .footer {
+  color: #c2b395;
+}
+.night .sceneHint {
+  color: #e5cda4;
+}
+.night .roomImage {
+  mix-blend-mode: normal;
+}
+.night .sceneViewport {
+  background: #302e2a;
+}
+.night .welcomeNote,
+.night .panel {
+  color: #5e493e;
+}
+.night .plantSummary a,
+.night .footer button {
+  color: #c4d3ad;
+}
+.night .areaNav button {
+  color: #d2c2a1;
+}
+.night .areaNav .activeArea {
+  background: #544a3a;
+  color: #fff4d7;
+}
+.night .activityDock {
+  border-color: #ffffff25;
+}
+.night .activityDock button {
+  border-color: #ffffff25;
+}
+.night .activityDock small {
+  color: #c2b395;
+}
+.night .header {
+  border-color: #ffffff20;
+}
+@keyframes grow {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-5deg) scale(1.03);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes drop {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+}
+@media (min-width: 1000px) {
+  .window {
+    transform: scale(1.12);
+    transform-origin: 10% 45%;
+  }
+  .sofa {
+    transform: scale(1.07);
+    transform-origin: 53% 47%;
+  }
+  .fridge {
+    transform: scale(1.12);
+    transform-origin: 90% 40%;
+  }
+  .withPanel .sceneViewport {
+    aspect-ratio: 1.2;
+    margin-top: 35px;
+  }
+  .withPanel .sceneCanvas {
+    inset: 7% 0;
+  }
+  .homeAside {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 1100px) {
+  .main {
+    padding: 0 25px;
+  }
+  .header {
+    padding: 20px 25px;
+  }
+  .roomLayout {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 12px;
+  }
+  .roomLayout.withPanel {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 12px;
+  }
+  .hotspot {
+    font-size: 9px;
+    padding: 6px;
+  }
+  .homeAside {
+    font-size: 12px;
+  }
+  .activityDock button {
+    padding: 10px 17px;
+  }
+  .activityDock button > span {
+    font-size: 18px;
+  }
+  .greeting h1 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .header {
+    padding: 16px 20px 14px;
+  }
+  .brand > span {
+    font-size: 26px;
+  }
+  .brand small {
+    font-size: 9px;
+  }
+  .headerTools {
+    gap: 12px;
+  }
+  .main {
+    padding: 0 20px;
+  }
+  .greeting {
+    margin: 25px 0 8px;
+    align-items: flex-start;
+  }
+  .greeting h1 {
+    font-size: 29px;
+    margin: 10px 0;
+  }
+  .greeting p {
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: 260px;
+  }
+  .dayLabel {
+    font-size: 10px;
+  }
+  .lightToggle {
+    padding: 10px;
+    border-radius: 50%;
+    margin-top: 24px;
+  }
+  .lightToggle span {
+    display: none;
+  }
+  .roomLayout,
+  .roomLayout.withPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  .sceneSection {
+    margin: 0 -20px;
+  }
+  .sceneViewport {
+    aspect-ratio: 1.05;
+    border-radius: 0;
+  }
+  .sceneCanvas {
+    inset: 6% -20%;
+    transform: scale(1);
+  }
+  .sceneCanvas.window {
+    transform: scale(1.7);
+    transform-origin: 15% 43%;
+  }
+  .sceneCanvas.sofa {
+    transform: scale(1.65);
+    transform-origin: 52% 42%;
+  }
+  .sceneCanvas.fridge {
+    transform: scale(1.7);
+    transform-origin: 88% 43%;
+  }
+  .sceneCanvas.window .decorSpot,
+  .sceneCanvas.window .noteSpot,
+  .sceneCanvas.sofa .plantSpot,
+  .sceneCanvas.sofa .noteSpot,
+  .sceneCanvas.fridge .plantSpot,
+  .sceneCanvas.fridge .decorSpot {
+    visibility: hidden;
+  }
+  .hotspot {
+    font-size: 10px;
+    min-height: 36px;
+  }
+  .window .plantSpot,
+  .sofa .decorSpot,
+  .fridge .noteSpot {
+    transform: scale(0.7);
+    transform-origin: left center;
+  }
+  .plantSpot {
+    left: 9%;
+    top: 57%;
+  }
+  .decorSpot {
+    left: 45%;
+    top: 55%;
+  }
+  .noteSpot {
+    left: 76%;
+    top: 45%;
+  }
+  .sceneHint {
+    bottom: 8px;
+    font-size: 10px;
+  }
+  .areaNav {
+    gap: 2px;
+    margin: 0 0 18px;
+  }
+  .areaNav button {
+    padding: 11px 14px;
+    font-size: 11px;
+  }
+  .homeAside {
+    display: none;
+  }
+  .activityDock {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    border-bottom: 0;
+    padding: 0;
+  }
+  .activityDock button {
+    border-right: 0;
+    border-bottom: 1px solid #5e493e1c;
+    padding: 18px 4px;
+  }
+  .activityDock button:last-child {
+    border-bottom: 1px solid #5e493e1c;
+  }
+  .activityDock button > span {
+    font-size: 20px;
+    gap: 5px;
+  }
+  .activityDock button > svg:first-child {
+    width: 22px;
+    margin-right: 3px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 22px 0 25px;
+    font-size: 10px;
+    text-align: center;
+  }
+  .withPanel .sceneSection {
+    margin-bottom: 0;
+  }
+  .withPanel .sceneViewport {
+    aspect-ratio: 1.7;
+  }
+  .withPanel .sceneCanvas {
+    inset: -15% -10%;
+  }
+  .withPanel .sceneHint {
+    display: none;
+  }
+  .withPanel .areaNav {
+    margin: 0 0 5px;
+  }
+  .panel {
+    margin-top: 0;
+  }
+  .panelInner {
+    padding: 21px;
+  }
+  .panelHead h2 {
+    font-size: 25px;
+  }
+  .panelIntro {
+    font-size: 21px;
+  }
+  .decorThumb {
+    height: 145px;
+  }
+  .careLog {
+    max-height: none;
+  }
+  .plantPortrait {
+    height: 205px;
+  }
+  .plantPortrait img {
+    height: 200px;
+  }
+  .carePeople {
+    font-size: 10px;
+  }
+  .panelHead {
+    margin-bottom: 20px;
+  }
+  .backSpaces {
+    font-size: 10px;
+  }
+  .noteForm textarea {
+    font-size: 22px;
+  }
+  .night .activityDock button:last-child {
+    border-color: #ffffff25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+.hotspot {
+  min-height: 44px;
+}
+.panelInner {
+  scroll-margin-bottom: 30px;
+}
+.app button,
+.app a {
+  touch-action: manipulation;
+}
+.app ::selection {
+  background: #cad8b4;
+  color: #354b35;
+}
+.noteForm textarea {
+  caret-color: #476c4c;
+}
+.noteForm fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.noteForm legend {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+@media (max-width: 760px) {
+  .sceneViewport {
+    aspect-ratio: 1.15;
+  }
+  .sceneCanvas {
+    inset: auto;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1.5;
+    transform: translateY(-50%);
+  }
+  .sceneCanvas.window {
+    transform: translateY(-50%) scale(1.9);
+    transform-origin: 15% 50%;
+  }
+  .sceneCanvas.sofa {
+    transform: translateY(-50%) scale(1.9);
+    transform-origin: 52% 50%;
+  }
+  .sceneCanvas.fridge {
+    transform: translateY(-50%) scale(1.9);
+    transform-origin: 85% 50%;
+  }
+  .all .hotspot span {
+    display: none;
+  }
+  .all .hotspot {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+  .window .plantSpot,
+  .sofa .decorSpot,
+  .fridge .noteSpot {
+    min-width: 63px;
+    min-height: 63px;
+    transform: scale(0.53);
+    transform-origin: left center;
+    font-size: 17px;
+    padding: 12px 15px;
+  }
+  .window .plantSpot svg,
+  .sofa .decorSpot svg,
+  .fridge .noteSpot svg {
+    width: 24px;
+    height: 24px;
+  }
+  .withPanel .sceneCanvas {
+    inset: auto;
+    top: 50%;
+    left: 0;
+  }
+  .sceneHint {
+    font-size: 10px;
+  }
+  .all .plantSpot {
+    left: 7%;
+    top: 56%;
+  }
+  .all .noteSpot {
+    left: 80%;
+    top: 45%;
+  }
+}
+.dayLabel,
+.greeting p,
+.plantSummary p,
+.activityDock small,
+.areaNav button,
+.footer,
+.previewHint,
+.centerText,
+.noteSignature span,
+.charCount,
+.careLog small {
+  color: #74604d;
+}
+.carePeople > span {
+  color: #476340;
+}

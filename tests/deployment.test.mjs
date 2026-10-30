@@ -24,7 +24,8 @@ test('published Claude version includes all latest planets and a way home',()=>{
  assert.equal(readFileSync(resolve(root,'style-3-starry/universe.html'),'utf8'),original);
 });
 test('every original Claude local asset and page link resolves',()=>assert.deepEqual(missingReferences(resolve(root,'style-3-starry')),[]));
-test('landing page points to both deployments with relative URLs',()=>{
+test('landing page points to all three deployments with relative URLs',()=>{
  const html=readFileSync(resolve(root,'site/index.html'),'utf8');assert.match(html,/href="\.\/codex\/"/);assert.match(html,/href="\.\/claude\/"/);
  assert.ok(!localReferences(html).some(ref=>ref.startsWith('/')));
+ assert.match(html,/href="\.\/codex-classic\/"/);
 });

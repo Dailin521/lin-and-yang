@@ -1,10 +1,11 @@
-# Lin & Yang · 双版本星空入口
+# Lin & Yang · 三版本入口
 
 正式站点：[https://dailin521.github.io/lin-and-yang/](https://dailin521.github.io/lin-and-yang/)
 
 | 版本 | 正式入口 | 源码 |
 | --- | --- | --- |
 | 总首页 | `/lin-and-yang/` | `site/` |
+| Codex 初版：四套独立空间 | `/lin-and-yang/codex-classic/` | `codex/v2/` |
 | Codex：我们的小宇宙 | `/lin-and-yang/codex/` | `codex/v3/` |
 | Claude：梦幻星空方案三 | `/lin-and-yang/claude/` | `style-3-starry/` |
 
@@ -30,7 +31,7 @@ GitHub Pages 使用 **GitHub Actions** 发布。推送 `main` 后，`.github/wor
 
 `scripts/build.mjs` 生成仓库根目录的 `dist/`：复制总首页、构建 Codex 至 `dist/codex/`，复制 Claude 至 `dist/claude/`。`BASE_PATH` 默认 `/lin-and-yang/`；Vite、演示图片和字体均使用这个发布前缀。`site-manifest.json` 记录发布版本 SHA、时间与页面清单，便于核对线上版本。
 
-构建只清理生成目录 `dist/`。现有根首页、Claude 原文件、Codex v2 和其他旧版本留在本机原位置；这些旧版本不包含在本次公开站点中。
+构建只清理生成目录 `dist/`。2026-10-30 起，Codex v2 以「Codex 初版」加入公开站点，保留同频、余温、小屋和心动游乐场；素材支持发布子目录，选择页可返回总首页。现有根首页与其他更早版本留在本机原位置。
 
 ## 发布适配与数据
 

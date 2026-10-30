@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "engines": { "node": ">=22.19.0" },
-  "workspaces": ["codex/v3"],
+  "workspaces": ["codex/v2", "codex/v3"],
   "scripts": {
-    "check": "npm run check --workspace codex/v3 && node scripts/check.mjs",
+    "check": "npm run check --workspaces && node scripts/check.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview.mjs"
